@@ -13,11 +13,11 @@ const Footer = ({ siteInfo }) => {
             <hr className='pb-2' />
 
             <div className='flex justify-center'>
-                <div><i className='mx-1 animate-pulse fas fa-heart' /> <a href={siteConfig('LINK')} className='underline font-bold text-gray-500 dark:text-gray-300 '>{siteConfig('AUTHOR')}</a>.<br /></div>
+                <div><i className='mx-1 animate-pulse fa-solid fa-hand-middle-finger' /> <a href={siteConfig('LINK')} className='underline text-gray-500 dark:text-gray-300 '>{siteConfig('AUTHOR')}</a>.<br /></div>
                 © {`${copyrightDate}`}
             </div>
 
-            <div className='text-xs font-serif'>Powered By <a href='https://github.com/tangly1024/NotionNext' className='underline text-gray-500 dark:text-gray-300'>NotionNext {siteConfig('VERSION')}</a></div>
+            <div className='text-xs font-serif'>Powered By <a href='mailto:uncle.jason@qq.com' className='underline text-gray-500 dark:text-gray-300'>Jason</a></div>
 
             {siteConfig('BEI_AN') && <><i className='fas fa-shield-alt' /> <a href='https://beian.miit.gov.cn/' className='mr-2'>{siteConfig('BEI_AN')}</a><br /></>}
 
@@ -25,7 +25,7 @@ const Footer = ({ siteInfo }) => {
                 <i className='fas fa-eye' /><span className='px-1 busuanzi_value_site_pv'> </span>  </span>
             <span className='pl-2 hidden busuanzi_container_site_uv'>
                 <i className='fas fa-users' /> <span className='px-1 busuanzi_value_site_uv'> </span> </span>
-            <h1 className='pt-1'>{siteConfig('TITLE')}</h1>
+            <h1 className='font-bold pt-1'>{siteConfig('BIO')}</h1>
 
         </footer>
   )
