@@ -25,7 +25,7 @@ const Footer = ({ siteInfo }) => {
                 <i className='fas fa-eye' /><span className='px-1 busuanzi_value_site_pv'> </span>  </span>
             <span className='pl-2 hidden busuanzi_container_site_uv'>
                 <i className='fas fa-users' /> <span className='px-1 busuanzi_value_site_uv'> </span> </span>
-            <h1 className='font-bold pt-1'>{siteConfig('BIO')}</h1>
+            <h1 className='font pt-1'>{siteConfig('BIO')}</h1>
 
         </footer>
   )
