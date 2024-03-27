@@ -7,10 +7,10 @@ const CONFIG = {
   GITBOOK_LATEST_POST_RED_BADGE: process.env.NEXT_PUBLIC_GITBOOK_LATEST_POST_RED_BADGE || true, // 是否给最新文章显示红点
 
   // 菜单
-  GITBOOK_MENU_CATEGORY: true, // 显示分类
-  GITBOOK_BOOK_MENU_TAG: true, // 显示标签
-  GITBOOK_MENU_ARCHIVE: true, // 显示归档
-  GITBOOK_MENU_SEARCH: true, // 显示搜索
+  GITBOOK_MENU_CATEGORY: false, // 显示分类
+  GITBOOK_BOOK_MENU_TAG: false, // 显示标签
+  GITBOOK_MENU_ARCHIVE: false, // 显示归档
+  GITBOOK_MENU_SEARCH: false, // 显示搜索
 
   // Widget
   GITBOOK_WIDGET_REVOLVER_MAPS: process.env.NEXT_PUBLIC_WIDGET_REVOLVER_MAPS || 'false', // 地图插件
