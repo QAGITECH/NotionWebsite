@@ -17,7 +17,7 @@ const Footer = ({ siteInfo }) => {
                 © {`${copyrightDate}`}
             </div>
 
-            <div className='text-xs font-serif'>Powered By  (Donate to)<a href='mailto:uncle.jason@qq.com' className='underline text-gray-500 dark:text-gray-300'>  𝘅𝘉𝘳𝘢𝘪𝘯.𝖾𝗍𝗁</a></div>
+            <div className='text-xs font-serif'>Powered By   (Donate to)  <a href='mailto:uncle.jason@qq.com' className='underline text-gray-500 dark:text-gray-300'>   𝘅𝘉𝘳𝘢𝘪𝘯.𝖾𝗍𝗁</a></div>
 
             {siteConfig('BEI_AN') && <><i className='fas fa-shield-alt' /> <a href='https://beian.miit.gov.cn/' className='mr-2'>{siteConfig('BEI_AN')}</a><br /></>}
 
