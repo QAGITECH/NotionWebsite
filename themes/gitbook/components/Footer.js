@@ -26,7 +26,7 @@ const Footer = ({ siteInfo }) => {
             <span className='pl-2 hidden busuanzi_container_site_uv'>
                 <i className='fas fa-users' /> <span className='px-1 busuanzi_value_site_uv'> </span> </span>
             <h1 className='font pt-1'>{siteConfig('BIO')}</h1>
-
+            <a href="https://www.buymeacoffee.com/SthAI" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
         </footer>
   )
 }
