@@ -10,7 +10,7 @@ const Footer = ({ siteInfo }) => {
         <footer
             className='z-20 py-2 bg:white dark:bg-hexo-black-gray justify-center text-center w-full text-sm relative'
         >
-            <hr className='pb-2' />
+            <hr className='pb-1' />
 
             <div className='flex justify-center'>
                 <div><i className='mx-1 animate-pulse fa-solid fa-hand-middle-finger' /> <a href={siteConfig('LINK')} className='underline text-gray-500 dark:text-gray-300 '>{siteConfig('AUTHOR')}</a>.<br /></div>
