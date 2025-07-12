@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人IP营销卡片 - 詹叔 (v3)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #12121a;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .card-container {
+            width: 400px;
+            height: 600px;
+            /* 移除鼠标悬浮的动态效果，保留静态的阴影以增强卡片质感 */
+            filter: drop-shadow(0px 10px 30px rgba(30, 30, 80, 0.25));
+        }
+        svg text {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <svg width="100%" height="100%" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+            <!-- 
+                v3 设计理念:
+                - 定位重塑: "AI时代的产品匠人"，回归沉稳、专业、有深度。
+                - 标签回归: 使用第一版标签，直接有力。
+                - 质感保留: 保留卡片阴影，营造实体感。
+                - 图标重构: 设计一个全新的静态图标，以逻辑迷宫中的一条通路，象征“在二进制世界寻找第三条路”，寓意清晰，风格稳重。
+            -->
+
+            <!-- 背景 -->
+            <defs>
+                <radialGradient id="techGradientV3" cx="50%" cy="100%" r="100%" fx="50%" fy="100%">
+                    <stop offset="0%" style="stop-color:#101022; stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1a1a2e; stop-opacity:1" />
+                </radialGradient>
+            </defs>
+            <rect width="400" height="600" rx="20" ry="20" fill="url(#techGradientV3)" />
+
+            <!-- 卡片内容容器 -->
+            <g transform="translate(20, 20)">
+                
+                <!-- 标题区域 -->
+                <text x="180" y="55" font-size="28" font-weight="bold" text-anchor="middle" fill="#e0e0e0">AI时代的产品匠人</text>
+                <text x="180" y="85" font-size="18" text-anchor="middle" fill="#a0a0c0">詹叔</text>
+                
+                <!-- 分割线 -->
+                <line x1="100" y1="115" x2="260" y2="115" stroke="#4a4a6a" stroke-width="1" />
+
+                <!-- IP语句区域 -->
+                <g text-anchor="middle" fill="#d0d0f0">
+                    <text x="180" y="170" font-size="24" font-weight="bold">
+                        <tspan x="180" dy="0">“在0和1的二进制世界,</tspan>
+                        <tspan x="180" dy="1.4em">探寻通往人性的第三条路”</tspan>
+                    </text>
+                    <text x="180" y="250" font-size="14" fill="#8a8aa0" style="font-style: italic; letter-spacing: 0.5px;">
+                        <tspan x="180" dy="0">In the binary world of 0s and 1s,</tspan>
+                        <tspan x="180" dy="1.3em">seeking a third path to humanity.</tspan>
+                    </text>
+                </g>
+
+                <!-- 静态图形区域: 逻辑迷宫中的通路 -->
+                <g transform="translate(180, 345)" stroke-width="1.5" fill="none">
+                    <!-- 背景: 逻辑线条构成的世界 -->
+                    <path d="M -80 -40 H 80 M -80 -20 H 80 M -80 0 H 80 M -80 20 H 80 M -80 40 H 80
+                             M -60 -50 V 50 M -30 -50 V 50 M 0 -50 V 50 M 30 -50 V 50 M 60 -50 V 50" 
+                          stroke="#3a3a5a" stroke-width="1"/>
+                    <!-- 前景: 探索人性的第三条路 -->
+                    <path d="M -90,0 C -50,-40 50,40 90,0" stroke="#8a8aff" stroke-width="3" stroke-linecap="round"/>
+                </g>
+
+                <!-- 解读区域 -->
+                <text x="180" y="445" font-size="15" text-anchor="middle" fill="#b0b0d0">
+                    <tspan x="180" dy="0">用代码的严谨逻辑，铺设一条通往人性温暖的道路。</tspan>
+                </text>
+                
+                <!-- 底部标签区域 (使用第一版) -->
+                <g text-anchor="middle" font-size="12" fill="#7a7a9a" transform="translate(0, 520)">
+                    <text x="180" y="0">#AI产品 #独立开发 #深度思考 #ASI降临派</text>
+                </g>
+            </g>
+        </svg>
+    </div>
+</body>
+</html>
