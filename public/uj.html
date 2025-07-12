@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>你好，我是詹叔。</title>
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
         body {
@@ -16,22 +18,22 @@
             font-family: 'Noto Sans SC', sans-serif;
         }
 
-        /* --- 新增：返回首页按钮样式 --- */
+        /* --- 返回首页按钮样式 --- */
         .home-button {
-            position: fixed; /* 固定在视口左上角 */
+            position: fixed;
             top: 30px;
             left: 30px;
-            z-index: 100; /* 确保在最上层 */
+            z-index: 100;
             display: flex;
             align-items: center;
             padding: 8px 16px;
-            background-color: rgba(42, 42, 62, 0.5); /* 半透明背景 */
+            background-color: rgba(42, 42, 62, 0.5);
             color: #a0a0c0;
             text-decoration: none;
-            border-radius: 50px; /* 胶囊形状 */
+            border-radius: 50px;
             font-size: 14px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px); /* 玻璃拟态效果 */
+            backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             transition: all 0.3s ease;
         }
@@ -45,6 +47,92 @@
 
         .home-button svg {
             margin-right: 6px;
+        }
+
+        /* --- 社交媒体侧边栏样式 --- */
+        .social-links {
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 图标之间的间距 */
+            z-index: 100;
+        }
+
+        .social-item {
+            position: relative; /* 用于定位二维码 */
+            cursor: pointer;
+        }
+        
+        .social-content {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            width: 100px; /* 固定宽度，保持对齐 */
+            background-color: rgba(42, 42, 62, 0.5);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .social-item:hover .social-content {
+            background-color: rgba(60, 60, 90, 0.7);
+            transform: scale(1.05);
+        }
+
+        .social-content i {
+            font-size: 20px;
+            color: #a0a0c0;
+            margin-right: 12px;
+            width: 20px; /* 固定图标宽度，让文字对齐 */
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+        
+        .social-content span {
+            font-size: 14px;
+            color: #a0a0c0;
+            transition: color 0.3s ease;
+        }
+
+        .social-item:hover .social-content i,
+        .social-item:hover .social-content span {
+            color: #e0e0e0;
+        }
+
+        /* --- 二维码弹出样式 --- */
+        .qr-code {
+            position: absolute;
+            top: 50%; 
+            left: calc(100% + 15px); 
+            transform: translateY(-50%) translateX(-10px);
+            width: 150px;
+            height: 150px;
+            padding: 5px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .social-item:hover .qr-code {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-50%) translateX(0);
         }
         /* --- 样式结束 --- */
 
@@ -69,16 +157,43 @@
         <span>首页</span>
     </a>
 
+    <!-- 社交媒体链接 -->
+    <div class="social-links">
+        <!-- 视频号 -->
+        <div class="social-item">
+            <div class="social-content">
+                <i class="fa-brands fa-meta"></i>
+                <span>视频号</span>
+            </div>
+            <div class="qr-code">
+                <img src="https://res.cloudinary.com/dapkmldat/image/upload/v1752338817/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250713004402_sf36ps.jpg" alt="微信视频号二维码">
+            </div>
+        </div>
+        <!-- 公众号 -->
+        <div class="social-item">
+            <div class="social-content">
+                <i class="fa-brands fa-weixin"></i>
+                <span>公众号</span>
+            </div>
+            <div class="qr-code">
+                <img src="https://res.cloudinary.com/dapkmldat/image/upload/v1752338817/qrcode_for_gh_bca52f9d4713_258_1_polvor.jpg" alt="微信公众号二维码">
+            </div>
+        </div>
+        <!-- 小红书 -->
+        <div class="social-item">
+            <div class="social-content">
+                <i class="fa-solid fa-registered"></i>
+                <span>小红书</span>
+            </div>
+            <div class="qr-code">
+                <img src="https://res.cloudinary.com/dapkmldat/image/upload/v1752338817/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250713004408_z60lle.jpg" alt="小红书二维码">
+            </div>
+        </div>
+    </div>
+
 
     <div class="card-container">
         <svg width="100%" height="100%" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
-            <!-- 
-                v4 设计理念:
-                - 增加返回按钮: 在左上角增加一个导航按钮，解决页面的孤立感，提升用户体验的连贯性。
-                - 按钮风格: 采用玻璃拟态风格，与整体科技感设计保持一致。
-            -->
-
-            <!-- 背景 -->
             <defs>
                 <radialGradient id="techGradientV3" cx="50%" cy="100%" r="100%" fx="50%" fy="100%">
                     <stop offset="0%" style="stop-color:#101022; stop-opacity:1" />
@@ -86,18 +201,10 @@
                 </radialGradient>
             </defs>
             <rect width="400" height="600" rx="20" ry="20" fill="url(#techGradientV3)" />
-
-            <!-- 卡片内容容器 -->
             <g transform="translate(20, 20)">
-                
-                <!-- 标题区域 -->
                 <text x="180" y="55" font-size="28" font-weight="bold" text-anchor="middle" fill="#e0e0e0">AI时代产品匠人</text>
                 <text x="180" y="85" font-size="18" text-anchor="middle" fill="#a0a0c0">詹叔</text>
-                
-                <!-- 分割线 -->
                 <line x1="100" y1="115" x2="260" y2="115" stroke="#4a4a6a" stroke-width="1" />
-
-                <!-- IP语句区域 -->
                 <g text-anchor="middle" fill="#d0d0f0">
                     <text x="180" y="170" font-size="24" font-weight="bold">
                         <tspan x="180" dy="0">“在0和1的2进制世界,</tspan>
@@ -108,23 +215,21 @@
                         <tspan x="180" dy="1.3em">seeking a third path to humanity.</tspan>
                     </text>
                 </g>
-
-                <!-- 静态图形区域: 逻辑迷宫中的通路 -->
                 <g transform="translate(180, 345)" stroke-width="1.5" fill="none">
-                    <!-- 背景: 逻辑线条构成的世界 -->
                     <path d="M -80 -40 H 80 M -80 -20 H 80 M -80 0 H 80 M -80 20 H 80 M -80 40 H 80
                              M -60 -50 V 50 M -30 -50 V 50 M 0 -50 V 50 M 30 -50 V 50 M 60 -50 V 50" 
                           stroke="#3a3a5a" stroke-width="1"/>
-                    <!-- 前景: 探索人性的第三条路 -->
-                    <path d="M -90,0 C -50,-40 50,40 90,0" stroke="#8a8aff" stroke-width="3" stroke-linecap="round"/>
+                    <!-- 探索人性的第三条路 (动态) -->
+                    <path d="M -90,0 C -50,-40 50,40 90,0" stroke="#8a8aff" stroke-width="3" stroke-linecap="round">
+                        <!-- 重新添加路径绘制动画 -->
+                        <animate attributeName="stroke-dasharray" from="0, 260" to="260, 260" dur="8s" repeatCount="indefinite" />
+                        <!-- 添加光晕闪烁效果 -->
+                        <animate attributeName="stroke" values="#8a8aff;#c0c0ff;#8a8aff" dur="4s" repeatCount="indefinite" />
+                    </path>
                 </g>
-
-                <!-- 解读区域 -->
                 <text x="180" y="445" font-size="15" text-anchor="middle" fill="#b0b0d0">
-                    <tspan x="180" dy="0">用代码的严谨逻辑，铺设1条通往人性温暖的道路。</tspan>
+                    <tspan x="180" dy="0">用代码的严谨逻辑，铺设一条通往人性温暖的道路。</tspan>
                 </text>
-                
-                <!-- 底部标签区域 -->
                 <g text-anchor="middle" font-size="12" fill="#7a7a9a" transform="translate(0, 520)">
                     <text x="180" y="0">#AI产品 #独立开发 #深度思考 #AGI降临派</text>
                 </g>
