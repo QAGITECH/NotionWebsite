@@ -16,6 +16,7 @@
             margin: 0;
             background-color: #12121a;
             font-family: 'Noto Sans SC', sans-serif;
+            overflow-x: hidden; /* 防止意外的水平滚动 */
         }
 
         /* --- 返回首页按钮样式 --- */
@@ -128,23 +129,99 @@
             border-radius: 8px;
             display: block;
         }
-
-        .social-item:hover .qr-code {
+        
+        /* This class is toggled by JS on click/tap */
+        .social-item.show-qr .qr-code {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
             transform: translateY(-50%) translateX(0);
         }
-        /* --- 样式结束 --- */
 
+        /* This is for hover on DESKTOP ONLY, using a media query for devices that can hover */
+        @media (hover: hover) and (pointer: fine) {
+            .social-item:hover .qr-code {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
 
         .card-container {
             width: 400px;
             height: 600px;
             filter: drop-shadow(0px 10px 30px rgba(30, 30, 80, 0.25));
+            transition: width 0.3s ease, height 0.3s ease;
         }
         svg text {
             font-family: 'Noto Sans SC', sans-serif;
         }
+
+        /* --- 移动端响应式样式 --- */
+        @media (max-width: 768px) {
+            .card-container {
+                width: 90vw; /* 使用视口宽度，更灵活 */
+                max-width: 400px;
+                height: auto; /* 高度自适应 */
+            }
+
+            .home-button {
+                top: 15px;
+                left: 15px;
+            }
+
+            /* 将社交链接移动到屏幕底部 */
+            .social-links {
+                left: 0;
+                right: 0;
+                top: auto;
+                bottom: 20px;
+                transform: none; /* 重置垂直居中 */
+                flex-direction: row; /* 水平排列 */
+                justify-content: center; /* 居中对齐 */
+                width: 100%;
+                gap: 20px;
+            }
+
+            /* 调整二维码弹出方向为向上 */
+            .qr-code {
+                top: auto;
+                bottom: calc(100% + 15px); /* 在图标上方15px处 */
+                left: 50%;
+                transform: translateX(-50%) translateY(10px);
+            }
+
+            /* Update transform for JS class on mobile */
+            .social-item.show-qr .qr-code {
+                transform: translateX(-50%) translateY(0);
+            }
+            
+            /* Update transform for hover on devices that have hover but are narrow */
+            @media (hover: hover) and (pointer: fine) {
+                .social-item:hover .qr-code {
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+        }
+
+        /* 针对非常窄的屏幕，只显示图标 */
+        @media (max-width: 480px) {
+            .social-content {
+                width: 44px; /* 调整为圆形按钮大小 */
+                height: 44px;
+                padding: 0;
+                justify-content: center;
+                border-radius: 50%;
+            }
+            .social-content span {
+                display: none; /* 隐藏文字 */
+            }
+            .social-content i {
+                margin-right: 0; /* 移除边距 */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -182,7 +259,7 @@
         <!-- 小红书 -->
         <div class="social-item">
             <div class="social-content">
-                <i class="fa-solid fa-registered"></i>
+                <i class="fa-solid fa-r"></i>
                 <span>小红书</span>
             </div>
             <div class="qr-code">
@@ -236,5 +313,40 @@
             </g>
         </svg>
     </div>
+
+    <!-- 新增：处理点击交互的JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialItems = document.querySelectorAll('.social-item');
+
+            socialItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    // Stop the click from bubbling up to the document and immediately closing the QR code.
+                    event.stopPropagation();
+                    
+                    const wasActive = this.classList.contains('show-qr');
+
+                    // First, close all other QR codes.
+                    document.querySelectorAll('.social-item.show-qr').forEach(activeItem => {
+                        activeItem.classList.remove('show-qr');
+                    });
+
+                    // If the item was not already active, make it active.
+                    // This creates a toggle effect for the same button.
+                    if (!wasActive) {
+                        this.classList.add('show-qr');
+                    }
+                });
+            });
+
+            // Add a listener to the whole document to close QR codes when clicking anywhere else.
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.social-item.show-qr').forEach(activeItem => {
+                    activeItem.classList.remove('show-qr');
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
