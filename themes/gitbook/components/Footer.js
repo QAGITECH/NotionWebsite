@@ -13,7 +13,7 @@ const Footer = ({ siteInfo }) => {
             <hr className='pb-1' />
 
             <div className='flex justify-center'>
-                <div><i className='mx-1 animate-pulse fa-face-smile' /> <a href={siteConfig('LINK')} className='underline text-gray-500 dark:text-gray-300 '>{siteConfig('AUTHOR')}</a>.<br /></div>
+                <div><i className='mx-1 animate-pulse fa-solid fa-face-flushed' /> <a href={siteConfig('LINK')} className='underline text-gray-500 dark:text-gray-300 '>{siteConfig('AUTHOR')}</a>.<br /></div>
                 © {`${copyrightDate}`}
             </div>
 
